@@ -1,0 +1,19 @@
+language: node_js
+node_js: 
+  - "node"
+
+
+# disable email notifications:
+
+notifications:
+email: false
+
+# connect to a test database (called travis_ci_test) on travis:
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c "create database travis_ci_test;" -U postgres
+
+# host environment variables on travis site
